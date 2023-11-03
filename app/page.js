@@ -17,7 +17,7 @@ export default function Home() {
     <div className="mt-3 ml-3">
       <button
         onClick={handleOpenPopup}
-        className="flex border border-gray-400 bg-blue-200 text-blue-500 px-10 py-2 mb-5 rounded-3xl"
+        className="flex border border-gray-400 bg-blue-200 text-blue-500 hover:bg-blue-500 hover:text-white px-10 py-2 mb-5 rounded-3xl"
       >
         Chọn file căn cứ
       </button>

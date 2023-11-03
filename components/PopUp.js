@@ -4,13 +4,7 @@ import Tabs from "./Tabs";
 import { SelectedDocContext } from "@/context/SelectedDocContext";
 
 export default function PopUp({ onClose, onSubmit }) {
-  const {
-    selectedDocList,
-    selectedInDoc,
-    selectedOutDoc,
-    uploadedDoc,
-    clearList,
-  } = useContext(SelectedDocContext);
+  const { saveList, clearList } = useContext(SelectedDocContext);
 
   function handleClose() {
     clearList();
@@ -18,12 +12,9 @@ export default function PopUp({ onClose, onSubmit }) {
   }
 
   function handleSubmit() {
+    saveList();
     onSubmit(true);
     onClose(false);
-    console.log("Selected list: ", selectedDocList);
-    console.log("Selected inDoc: ", selectedInDoc),
-      console.log("Selected outDoc: ", selectedOutDoc);
-    console.log("Upload: ", uploadedDoc);
   }
 
   return (
@@ -36,19 +27,21 @@ export default function PopUp({ onClose, onSubmit }) {
           X
         </button>
       </div>
-      <div className="grid grid-cols-4 gap-2">
-        <div className="col-span-3 flex flex-col px-2 gap-2 border-r border-gray-200">
-          <Tabs />
+      <div className="lg:grid lg:grid-cols-4 lg:gap-2">
+        <div className="lg:col-span-3 flex flex-col px-2 gap-2 lg:border-r border-gray-200">
+          <div className="flex justify-center items-center">
+            <Tabs />
+          </div>
           <div className="ml-auto">
             <button
               onClick={handleClose}
-              className="btn hover:bg-blue-500 hover:text-white"
+              className="btn border-blue-500 hover:bg-blue-500 hover:text-white"
             >
               Hủy bỏ
             </button>
             <button
               onClick={handleSubmit}
-              className="btn hover:bg-blue-500 hover:text-white"
+              className="btn border-blue-500 hover:bg-blue-500 hover:text-white"
             >
               Xác nhận
             </button>

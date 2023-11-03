@@ -6,13 +6,13 @@ export default function SelectedList() {
   return (
     <div>
       <h1>Văn bản đã chọn</h1>
-      {selectedDocList.map((code) => (
+      {selectedDocList.map((item) => (
         <div
-          key={code}
+          key={item.docCode}
           className="flex justify-between py-2 mr-2 border-b border-gray-200"
         >
-          <h1 className="text-black">{code}</h1>
-          <button onClick={() => deleteDocFromList(code)}>
+          <h1 className="text-black truncate">{item.docCode}</h1>
+          <button onClick={() => deleteDocFromList(item.docCode)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"

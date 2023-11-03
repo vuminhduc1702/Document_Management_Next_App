@@ -15,13 +15,23 @@ export default function DocumentList({ docList, docSource }) {
     setPage(1);
   }, [docList]);
 
+  useEffect(() => {}, [selectedDocList]);
+
+  function handleCheck(code) {
+    if (selectedDocList.find((item) => item.docCode === code)) return true;
+    else return false;
+  }
+
   function handleCheckBox(code, source) {
-    if (selectedDocList.includes(code)) {
+    const existed = selectedDocList.find((item) => item.docCode === code);
+    if (existed) {
       deleteDocFromList(code);
     } else {
       addDocToList(code, source);
     }
   }
+
+  console.log(selectedDocList);
 
   function formatDate(timestamp) {
     const date = new Date(timestamp);
@@ -54,7 +64,7 @@ export default function DocumentList({ docList, docSource }) {
                 <td>
                   <input
                     type="checkbox"
-                    checked={selectedDocList.includes(doc.documentCode)}
+                    checked={handleCheck(doc.documentCode)}
                     className="h-4 w-4 px-4"
                     onChange={() => handleCheckBox(doc.documentCode, docSource)}
                   />

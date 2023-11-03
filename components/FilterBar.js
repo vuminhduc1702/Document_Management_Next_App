@@ -42,7 +42,7 @@ export default function FilterBar({
           />
           <div className="flex items-center">
             <button
-              className="bg-blue-500 text-white px-4 py-2 rounded-3xl"
+              className="text-sm md:text-xl bg-blue-500 text-white px-4 py-2 rounded-3xl"
               onClick={handleSearchClick}
             >
               Tìm kiếm
