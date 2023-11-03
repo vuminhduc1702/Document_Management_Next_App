@@ -2,26 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @apply font-sans text-lg;
+}
+
+h1 {
+  @apply text-xl;
+}
+
+h1,
+h2 {
+  @apply text-blue-500;
+}
+
+table.basic {
+  @apply w-full text-lg;
+}
+
+table.basic thead tr td {
+  @apply bg-blue-500 text-white py-5;
+}
+
+table.basic tr {
+  @apply border-b border-gray-200;
+}
+
+table.basic tr td {
+  @apply py-2;
+}
+
+.btn {
+  @apply border p-3 rounded-3xl mx-2 cursor-pointer;
+}
+
+.active-tabs {
+  @apply border-b border-blue-500 bg-white;
+}
+
+.tabs {
+  @apply bg-white text-xl text-center p-4 cursor-pointer;
+}
+
+.content {
+  @apply p-5 w-full h-full hidden;
+}
+
+.active-content {
+  @apply block;
+}
+
+ul {
+  @apply text-xl list-disc list-inside;
 }
